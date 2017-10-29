@@ -2,9 +2,80 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>乐淘-首页</title>
+  <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="lib/bootstrap-validator/css/bootstrapValidator.min.css">
+  <link rel="stylesheet" href="css/common.css">
 </head>
 <body>
-首页
+<div class="lt_aside">
+  <div class="brand">
+    <a href="index.html">黑马十四期</a>
+  </div>
+  <div class="user">
+    <img src="images/1.jpg">
+    <p>超级管理员</p>
+  </div>
+  <div class="nav">
+    <ul>
+      <li>
+        <a href="#" class="now">
+          <span class="glyphicon glyphicon-user"></span>
+          用户管理
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="glyphicon glyphicon-th-list"></span>
+          分类管理
+        </a>
+        <div class="child" style="display: none">
+          <a href="#">一级分类</a>
+          <a href="#">二级分类</a>
+        </div>
+      </li>
+      <li>
+        <a href="#">
+          <span class="glyphicon glyphicon-tags"></span>
+          商品管理
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="lt_main">
+  <div class="lt_header">
+    <a href="javascript:;" class="icon_menu pull-left">
+      <span class="glyphicon glyphicon-align-justify"></span>
+    </a>
+    <a href="javascript:;" class="icon_logout pull-right">
+      <span class="glyphicon glyphicon-log-out"></span>
+    </a>
+  </div>
+  <div class="container-fluid">
+    <ol class="breadcrumb">
+      <li><a href="#">管理系统</a></li>
+      <li class="active">用户管理</li>
+    </ol>
+    <div class="lt_content">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <td width="10%">序号</td>
+            <td width="30%">用户名</td>
+            <td width="30%">手机号</td>
+            <td width="20%">状态</td>
+            <td width="10%">操作</td>
+          </tr>
+        </thead>
+      </table>
+    </div>
+
+  </div>
+</div>
+<script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+<script src="js/login.js"></script>
 </body>
 </html>
