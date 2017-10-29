@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>乐淘-首页</title>
+  <title>乐淘-用户管理</title>
   <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="lib/bootstrap-validator/css/bootstrapValidator.min.css">
   <link rel="stylesheet" href="lib/nprogress/nprogress.css">
@@ -56,12 +56,29 @@
   <div class="container-fluid">
     <ol class="breadcrumb">
       <li><a href="#">管理系统</a></li>
-      <li class="active">首页</li>
+      <li class="active">用户管理</li>
     </ol>
     <div class="lt_content">
-      <div class="pull-left pic_table1"></div>
-      <div class="pull-right pic_table2"></div>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <td width="10%">序号</td>
+            <td width="30%">用户名</td>
+            <td width="30%">手机号</td>
+            <td width="20%">状态</td>
+            <td width="10%">操作</td>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+      <!--分页-->
+      <div class="text-right">
+        <ul id="pagintor"></ul>
+      </div>
     </div>
+
   </div>
 </div>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -84,12 +101,32 @@
     </div>
   </div>
 </div>
+<script type="text/html" id="tpl">
+  {{each rows v i}}
+  <tr>
+    <td width="10%">{{(page-1)*pageSize+i+1}}</td>
+    <td width="30%">{{v.username}}</td>
+    <td width="30%">{{v.mobile}}</td>
+    <td width="20%">{{v.isDelete==1?"正常":"禁用"}}</td>
+    <td width="10%">
+      {{if(v.isDelete==1)}}
+      <button class="btn btn-sm btn-danger">禁用</button>
+      {{/if}}
+      {{if(v.isDelete==0)}}
+      <button class="btn btn-sm btn-success">启用</button>
+      {{/if}}
+    </td>
+  </tr>
+  {{/each}}
+
+</script>
 <script src="lib/jquery/jquery.min.js"></script>
 <script src="lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+<script src="lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
 <script src="lib/nprogress/nprogress.js"></script>
-<script src="lib/echarts/echarts.min.js"></script>
+<script src="lib/artTemplate/template-web.js"></script>
 <script src="js/common.js"></script>
-<script src="js/index.js"></script>
+<script src="js/user.js"></script>
 </body>
 </html>

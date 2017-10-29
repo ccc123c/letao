@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>乐淘-首页</title>
+  <title>乐淘-分类管理</title>
   <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="lib/bootstrap-validator/css/bootstrapValidator.min.css">
   <link rel="stylesheet" href="lib/nprogress/nprogress.css">
@@ -20,7 +20,7 @@
   <div class="nav">
     <ul>
       <li>
-        <a href="user.html" class="now">
+        <a href="user.html" >
           <span class="glyphicon glyphicon-user"></span>
           用户管理
         </a>
@@ -30,9 +30,9 @@
           <span class="glyphicon glyphicon-th-list"></span>
           分类管理
         </a>
-        <div class="child" style="display: none">
+        <div class="child" style="display: block">
           <a href="first.html">一级分类</a>
-          <a href="second.html">二级分类</a>
+          <a href="second.html" class="now">二级分类</a>
         </div>
       </li>
       <li>
@@ -56,12 +56,13 @@
   <div class="container-fluid">
     <ol class="breadcrumb">
       <li><a href="#">管理系统</a></li>
-      <li class="active">首页</li>
+      <li><a href="#">分类管理</a></li>
+      <li class="active">二级列表</li>
     </ol>
     <div class="lt_content">
-      <div class="pull-left pic_table1"></div>
-      <div class="pull-right pic_table2"></div>
+      <!--内容填充-->
     </div>
+
   </div>
 </div>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -88,8 +89,7 @@
 <script src="lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
 <script src="lib/nprogress/nprogress.js"></script>
-<script src="lib/echarts/echarts.min.js"></script>
 <script src="js/common.js"></script>
-<script src="js/index.js"></script>
+<script src="js/login.js"></script>
 </body>
 </html>
