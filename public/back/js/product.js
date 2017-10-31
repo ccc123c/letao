@@ -1,15 +1,116 @@
 $(function(){
     var currentPage=1;
-    var pageSize=5;
-    $.ajax({
-        type:"get",
-        url:"/product/queryProductDetailList",
-        data:{
-            page:currentPage,
-            pageSize:pageSize
+    var pageSize=8;
+    var $form=$('#form');
+   function render(){
+       $.ajax({
+           type:"get",
+           url:"/product/queryProductDetailList",
+           data:{
+               page:currentPage,
+               pageSize:pageSize
+           },
+           success:function(data){
+               $("tbody").html(template("tpl",data));
+               $("#pagintor").bootstrapPaginator({
+                   bootstrapMajorVersion:3,
+                   size:"small",
+                   totalPages:Math.ceil(data.total/pageSize),
+                   currentPage:currentPage,
+                   onPageClicked(a,b,c,page){
+                       currentPage=page;
+                       render();
+                   }
+               })
+           }
+       })
+   }
+    render();
+    $(".btn_product").on('click',function(){
+        $("#addModal").modal("show");
+        $.ajax({
+            type:"get",
+            url:"/category/querySecondCategoryPaging",
+            data:{
+                page:currentPage,
+                pageSize:20
+            },
+            success:function(data){
+                $(".dropdown-menu").html(template("tp2",data));
+            }
+        })
+    })
+    $(".dropdown-menu").on("click","a",function(){
+        $('.dropdown-text').text($(this).text());
+        $form.data('bootstrapValidator').updateStatus("brandId","VALID")
+    })
+    $form.bootstrapValidator({
+        excluded:[],
+        feedbackIcons:{
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
         },
-        success:function(data){
-            $("tbody").html(template("tpl",data));
+        fields:{
+            brandId:{
+                validators:{
+                    notEmpty:{
+                        message:"请选择二级分类"
+                    }
+                }
+            },
+            proName:{
+                validators:{
+                    notEmpty:{
+                        message:"请输入商品名称"
+                    }
+                }
+            },
+            proDesc:{
+                validators:{
+                    notEmpty:{
+                        message:"请输入商品描述"
+                    }
+                }
+            },
+            num:{
+                validators:{
+                    notEmpty:{
+                        message:"商品库存不能为空"
+                    },
+                    regexp:{
+                        regexp:/^[1-9]\d*$/,
+                        message:"请输入一个大于0的数"
+                    }
+                }
+            },
+            size:{
+                validators:{
+                    notEmpty:{
+                        message:"商品尺寸不能为空"
+                    },
+                    regexp:{
+                        //33-55
+                        regexp:/^\d{2}-\d{2}$/,
+                        message:"请输入正确的尺码（30-50）"
+                    }
+                }
+
+            },
+            oldPrice:{
+                validators:{
+                    notEmpty:{
+                        message:"请输入商品原价"
+                    }
+                }
+            },
+            price:{
+                validators:{
+                    notEmpty:{
+                        message:"请输入商品折扣价"
+                    }
+                }
+            }
         }
     })
 })
