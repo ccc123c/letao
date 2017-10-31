@@ -11,9 +11,11 @@
   width: 180px;
   height: 100%;
   background-color: #222d32;
-  position:absolute;
+  position:fixed;
   left:0;
+  top:0;
   transition:all 1s;
+  z-index: 999;
 }
 .lt_aside.now{
   left:-180px;
@@ -73,6 +75,7 @@ a:hover,a:link,a:active,a:visited{
 .lt_main{
   padding-left:180px;
   transition:all 1s;
+  padding-top:50px;
 }
 .lt_main.now{
   padding-left: 0px;
@@ -81,6 +84,15 @@ a:hover,a:link,a:active,a:visited{
   height: 50px;
   line-height: 50px;
   background-color: #3c8dbc;
+  padding:0 20px 0 200px;
+  position:fixed;
+  width: 100%;
+  left:0;
+  top:0;
+  z-index: 998;
+  transition: all 1s;
+}
+.lt_main .lt_header.now{
   padding:0 20px;
 }
 .lt_main .icon_menu,.lt_main .icon_logout{

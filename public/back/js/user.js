@@ -1,6 +1,6 @@
 $(function(){
     var currentPage=1;
-    var pageSize=5;
+    var pageSize=10;
     var id=0;
     var isDelete=0;
     render();
