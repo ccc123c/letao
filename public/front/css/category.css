@@ -19,6 +19,7 @@
 .lt_content_l li.now{
   background-color: #fff;
   border-right:none;
+  border-bottom: none;
 }
 .lt_content_r{
   margin-left:90px;

@@ -1,0 +1,46 @@
+.lt_content .lt_search{
+  padding:10px 10px 0;
+  position: relative;
+}
+.lt_content input{
+  border-radius: 5px;
+  font-size: 12px;
+  border: 1px solid #069;
+  height: 35px;
+}
+.lt_content button{
+  position:absolute;
+  right:11px;
+  top:11px;
+  width: 60px;
+  border-radius: 0 5px 5px 0;
+
+}
+.lt_history div{
+  padding:10px;
+  font-size: 12px;
+  color:#666;
+}
+.lt_history div span{
+  height: 25px;
+  line-height: 25px;
+}
+.lt_history ul{
+  margin:0 10px;
+  border:1px dashed #ccc;
+}
+.lt_history li{
+  height: 30px;
+  line-height: 30px;
+  padding:0 10px;
+  border-bottom: 1px dashed #ccc;
+}
+.lt_history li:last-child{
+  border-bottom: none;
+}
+.lt_history li a{
+  font-size: 12px;
+}
+.lt_history span{
+  line-height: 30px;
+}
