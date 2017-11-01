@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>乐淘云购</title>
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="lib/fa/css/font-awesome.min.css">
+  <link rel="stylesheet" href="lib/mui/css/mui.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/category.css">
+</head>
+<body>
+<div class="lt_container">
+  <!--头部-->
+  <div class="lt_header">
+    <a href="javascript:history.go(-1);" class="icon-left">
+      <span class="fa fa-chevron-left"></span>
+    </a>
+    <h4>乐淘云购</h4>
+    <a href="javascript:;" class="icon-right">
+      <span class="fa fa-search"></span>
+    </a>
+  </div>
+      <!--内容部分-->
+      <div class="lt_content">
+        <div class="lt_content_l">
+          <div class="mui-scroll-wrapper">
+            <div class="mui-scroll">
+              <ul class="mui-clearfix">
+
+                <!--挖个坑-->
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="lt_content_r">
+          <div class="mui-scroll-wrapper">
+            <div class="mui-scroll">
+              <ul class="mui-clearfix">
+               <!--挖个坑-->
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+  <!--尾部-->
+  <div class="lt_footer">
+    <ul class="mui-clearfix">
+      <li>
+        <a href="index.html">
+          <span class="fa fa-home"></span>
+          <p>首页</p>
+        </a>
+      </li>
+      <li class="now">
+        <a href="category.html" >
+          <span class="fa fa-bars"></span>
+          <p>分类</p>
+        </a>
+      </li> <li>
+      <a href="javascript:;">
+        <span class="fa fa-shopping-cart"></span>
+        <p>购物车</p>
+      </a>
+    </li> <li>
+      <a href="javascript:;">
+        <span class="fa fa-user"></span>
+        <p>会员中心</p>
+      </a>
+    </li>
+    </ul>
+  </div>
+</div>
+<script type="text/html" id="tpl">
+  {{each rows v i}}
+  <li data-id="{{v.id}}" class="{{v.id===1?'now':''}}"><a href="javascript:;">运动馆</a></li>
+  {{/each}}
+</script>
+<script type="text/html" id="tp2">
+  {{if rows.length===0}}
+  <p>暂时没有分类数据</p>
+  {{/if}}
+  {{each rows v i}}
+  <li><a href="javascript:;"><img src="{{v.brandLogo?v.brandLogo:'images/none.png'}}" alt=""></a><p>{{v.brandName}}</p></li>
+  {{/each}}
+</script>
+<script src="lib/mui/js/mui.min.js"></script>
+<script src="lib/zepto/zepto.min.js"></script>
+<script src="lib/artTemplate/template-web.js"></script>
+<script src="js/category.js"></script>
+</body>
+</html>
