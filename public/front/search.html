@@ -26,8 +26,8 @@
       <div class="mui-scroll">
         <!--这里放置真实显示的DOM内容-->
         <div class="lt_search">
-          <input type="text" placeholder="请输入搜索关键字">
-          <button class="btn mui-btn-blue">搜索</button>
+          <input class="search_text" type="text" placeholder="请输入搜索关键字">
+          <button class="btn mui-btn-blue btn_search">搜索</button>
         </div>
         <div class="lt_history">
           <div class="mui-clearfix">
@@ -35,75 +35,7 @@
             <span class="mui-pull-right fa fa-trash">清空记录</span>
           </div>
           <ul>
-            <li>
-              <a href="#" class="mui-pull-left">阿迪达斯</a>
-              <span class="mui-pull-right mui-icon mui-icon-closeempty"></span>
-            </li>
-            <li>
-              <a href="#" class="mui-pull-left">阿迪达斯</a>
-              <span class="mui-pull-right mui-icon mui-icon-closeempty"></span>
-            </li>
-            <li>
-              <a href="#" class="mui-pull-left">阿迪达斯</a>
-              <span class="mui-pull-right mui-icon mui-icon-closeempty"></span>
-            </li>
-            <li>
-              <a href="#" class="mui-pull-left">阿迪达斯</a>
-              <span class="mui-pull-right mui-icon mui-icon-closeempty"></span>
-            </li>
-            <li>
-              <a href="#" class="mui-pull-left">阿迪达斯</a>
-              <span class="mui-pull-right mui-icon mui-icon-closeempty"></span>
-            </li>
-            <li>
-            <a href="#" class="mui-pull-left">阿迪达斯</a>
-            <span class="mui-pull-right mui-icon mui-icon-closeempty"></span>
-            </li>
-            <li>
-              <a href="#" class="mui-pull-left">阿迪达斯</a>
-              <span class="mui-pull-right mui-icon mui-icon-closeempty"></span>
-            </li>
-            <li>
-              <a href="#" class="mui-pull-left">阿迪达斯</a>
-              <span class="mui-pull-right mui-icon mui-icon-closeempty"></span>
-            </li>
-            <li>
-              <a href="#" class="mui-pull-left">阿迪达斯</a>
-              <span class="mui-pull-right mui-icon mui-icon-closeempty"></span>
-            </li>
-            <li>
-              <a href="#" class="mui-pull-left">阿迪达斯</a>
-              <span class="mui-pull-right mui-icon mui-icon-closeempty"></span>
-            </li>
-            <li>
-              <a href="#" class="mui-pull-left">阿迪达斯</a>
-              <span class="mui-pull-right mui-icon mui-icon-closeempty"></span>
-            </li>
-            <li>
-              <a href="#" class="mui-pull-left">阿迪达斯</a>
-              <span class="mui-pull-right mui-icon mui-icon-closeempty"></span>
-            </li>
-            <li>
-              <a href="#" class="mui-pull-left">阿迪达斯</a>
-              <span class="mui-pull-right mui-icon mui-icon-closeempty"></span>
-            </li>
-            <li>
-              <a href="#" class="mui-pull-left">阿迪达斯</a>
-              <span class="mui-pull-right mui-icon mui-icon-closeempty"></span>
-            </li>
-            <li>
-              <a href="#" class="mui-pull-left">阿迪达斯</a>
-              <span class="mui-pull-right mui-icon mui-icon-closeempty"></span>
-            </li>
-            <li>
-              <a href="#" class="mui-pull-left">阿迪达斯</a>
-              <span class="mui-pull-right mui-icon mui-icon-closeempty"></span>
-            </li>
-            <li>
-              <a href="#" class="mui-pull-left">阿迪达斯</a>
-              <span class="mui-pull-right mui-icon mui-icon-closeempty"></span>
-            </li>
-
+            <!--挖个坑-->
           </ul>
         </div>
       </div>
@@ -137,6 +69,14 @@
     </ul>
   </div>
 </div>
+<script type="text/html" id="tpl">
+  {{each arr v i}}
+  <li>
+    <a href="#" class="mui-pull-left">{{v}}</a>
+    <span data-index="{{i}}" class="mui-pull-right mui-icon mui-icon-closeempty icon_empty"></span>
+  </li>
+  {{/each}}
+</script>
 <script src="lib/mui/js/mui.min.js"></script>
 <script src="lib/zepto/zepto.min.js"></script>
 <script src="lib/artTemplate/template-web.js"></script>

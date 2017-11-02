@@ -137,16 +137,18 @@ $(function(){
     })
     $form.on("success.form.bv",function(e){
         e.preventDefault();
-  /*      var param = $form.serialize();
-        还需要拼接3张图片的地址
-        param += "&picName1="+imgArray[0].picName+"&picAddr1="+imgArray[0].picAddr;
-        param += "&picName2="+imgArray[1].picName+"&picAddr2="+imgArray[1].picAddr;
-        param += "&picName3="+imgArray[2].picName+"&picAddr3="+imgArray[2].picAddr;*/
-       $.ajax({
+        var param = $form.serialize();
+        //还需要拼接3张图片的地址
+        param += "&picName1="+picArr[0].picName+"&picAddr1="+picArr[0].picAddr;
+        param += "&picName2="+picArr[1].picName+"&picAddr2="+picArr[1].picAddr;
+        param += "&picName3="+picArr[2].picName+"&picAddr3="+picArr[2].picAddr;
+        console.log(param);
+        $.ajax({
            type:"post",
            url:"/product/addProduct",
-           data:$form.serialize(),
+           data:param,
            success:function(data){
+               console.log(data);
                if(data.success){
                    $("#addModal").modal("hide");
                    currentPage=1;
