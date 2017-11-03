@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <title>商品详情页</title>
+  <title>商品页</title>
   <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="lib/fa/css/font-awesome.min.css">
   <link rel="stylesheet" href="lib/mui/css/mui.css">
@@ -82,7 +82,7 @@
   {{/if}}
   {{each data v i}}
       <li>
-        <a href="javascript:;">
+        <a href="product.html?productId={{v.id}}">
           <img src="{{v.pic[0].picAddr}}" alt="">
           <p class="info mui-ellipsis-2">{{v.proName}}</p>
           <p>
