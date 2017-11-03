@@ -14,3 +14,10 @@
 .lt_product .info{
   height: 40px;
 }
+.lt_sort a.now{
+  color:darkorange;
+}
+.lt_product ul p{
+  padding:10px;
+  font-size: 12px;
+}
