@@ -13,5 +13,10 @@ var tools= {
     },
     getValue: function (name) {
         return this.getUrl()[name];
+    },
+    checkLogin:function(data){
+        if(data.error===400){
+            location.href="login.html?retUrl="+location.href;
+        }
     }
 }
