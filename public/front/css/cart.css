@@ -59,3 +59,18 @@
 .mui-table-cell{
  display: block;
 }
+.lt_cart_size{
+  text-align: left;
+}
+.lt_cart_size span{
+  line-height: 36px;
+  padding: 5px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+}
+.lt_cart_size span.now{
+  background-color: #069;
+}
+.lt_cart_num{
+  text-align: left;
+}

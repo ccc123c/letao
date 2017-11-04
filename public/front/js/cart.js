@@ -16,6 +16,7 @@ $(function(){
                         type:"get",
                         url:"/cart/queryCart",
                         success:function(data){
+                            // console.log(data);
                             setTimeout(function(){
                                 tools.checkLogin(data);
                                 $('#OA_task_2').html(template("tpl",{data:data}));
@@ -31,19 +32,68 @@ $(function(){
     /*删除一条记录*/
     $("#OA_task_2").on("tap",".lt_cart_delete",function(){
         var id=$(this).data("id");
-        $.ajax({
-            type:"get",
-            url:"/cart/deleteCart",
-            data:{
-                id:[id]
-            },
-            success:function(data){
-                tools.checkLogin(data);
-                if(data.success){
-                   /*成功之后,下拉刷新一次*/
-                    mui('.mui-scroll-wrapper').pullRefresh().pulldownLoading();
-                }
+        mui.confirm("确定删除吗?","温馨提示",["是","否"],function(e){
+            if(e.index===0){
+                $.ajax({
+                    type:"get",
+                    url:"/cart/deleteCart",
+                    data:{
+                        id:[id]
+                    },
+                    success:function(data){
+                        tools.checkLogin(data);
+                        if(data.success){
+                            /*成功之后,下拉刷新一次*/
+                            mui('.mui-scroll-wrapper').pullRefresh().pulldownLoading();
+                        }
+                    }
+                })
             }
         })
+
     })
+    
+    /*编辑记录*/
+    $("#OA_task_2").on("tap",".lt_cart_edit",function(){
+        var data=this.dataset;
+        console.log(data);
+        var html=template("tp2",data);
+        html=html.replace(/\n/g,"");/*去除空格换行*/
+        /*编辑商品*/
+        mui.confirm(html,"编辑商品",["确定","取消"],function(e){
+            if(e.index===0){
+                $.ajax({
+                    type:"post",
+                    url:"/cart/updateCart",
+                    data:{
+                        id:data.id,
+                        size:$('.lt_cart_size .size').html(),
+                        num:$('.mui-numbox-input').val()
+                    },
+                    success:function(data){
+                        tools.checkLogin(data);
+                        if(data.success){
+                            mui('.mui-scroll-wrapper').pullRefresh().pulldownLoading();
+                        }
+                    }
+                })
+            }
+        })
+        /*修改尺码*/
+        $(".lt_cart_size .size").on("click",function(){
+            $(this).addClass("now").siblings().removeClass("now");
+        })
+        /*修改数量*/
+        mui(".mui-numbox").numbox();
+    })
+
+    /*计算订单总金额*/
+    $("#OA_task_2").on("change",".ck",function(){
+        var total=0;
+        $(":checked").each(function(i,e){
+            total+=$(this).data("num")*$(this).data("price");
+        })
+        $(".lt_cart_total .price").html(total);
+    })
+
 });

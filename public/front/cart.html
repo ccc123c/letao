@@ -40,7 +40,7 @@
 
   <!--订单结算-->
   <div class="lt_cart_total">
-    <div>订单总金额: <span class="price">&yen;550</span></div>
+    <div>订单总金额: <span class="price">&yen;0</span></div>
     <a href="#">生成订单</a>
   </div>
 
@@ -79,7 +79,13 @@
   {{each data v i}}
   <li class="mui-table-view-cell mui-transitioning">
     <div class="mui-slider-right mui-disabled">
-      <a class="mui-btn mui-btn-blue mui-icon mui-icon-compose"></a>
+      <a class="lt_cart_edit mui-btn mui-btn-blue mui-icon mui-icon-compose"
+      data-id="{{v.id}}"
+      data-size="{{v.size}}"
+      data-num="{{v.num}}"
+      data-productNum="{{v.productNum}}"
+      data-productSize="{{v.productSize}}"
+      ></a>
       <a data-id="{{v.id}}" class="lt_cart_delete mui-btn mui-btn-red mui-icon mui-icon-trash"></a>
     </div>
     <div class="mui-slider-handle">
@@ -96,11 +102,31 @@
           </p>
           <p><span class="size">鞋码:{{v.size}}</span></p>
         </div>
-        <input type="checkbox" class="ck">
+        <input type="checkbox" class="ck" data-id="{{v.id}}"
+        data-price="{{v.price}}"
+        data-num="{{v.num}}">
       </div>
     </div>
   </li>
   {{/each}}
+</script>
+<script type="text/html" id="tp2">
+  <div class="lt_cart_size">
+    尺码:
+    <%
+    var arr=productsize.split("-");
+    for(var i=arr[0];i<=arr[1];i++){
+    %>
+    <span class="size {{i==size?'now':''}}">{{i}}</span>
+   <%}%>
+  </div>
+  <div class="lt_cart_num">
+    数量:<div class="mui-numbox" data-numbox-step='1' data-numbox-min='1' data-numbox-max='{{productnum}}'>
+    <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+    <input class="mui-numbox-input" type="number" value="{{num}}"/>
+    <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+  </div>
+  </div>
 </script>
 <script src="lib/mui/js/mui.min.js"></script>
 <script src="lib/zepto/zepto.min.js"></script>
