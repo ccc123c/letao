@@ -1,3 +1,30 @@
 /**
  * Created by j on 2017/11/4.
  */
+$(function(){
+    $.ajax({
+        type:'get',
+        url:'/user/queryUserMessage',
+        success:function(data){
+            tools.checkLogin(data);
+                $(".userinfo").html(template("tpl",data));
+        }
+    })
+    /*退出功能*/
+    $(".btn_logout").on("click",function(){
+        mui.confirm("确定退出系统吗?","温馨提示",["确定","取消"],function(e){
+          if(e.index==0){
+              $.ajax({
+                  type:"get",
+                  url:"/user/logout",
+                  success:function(data){
+                      if(data.success){
+                          location.href="login.html";
+                      }
+                  }
+              })
+          }
+        });
+
+    })
+})
